@@ -1,6 +1,12 @@
-/* Base */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+/*================ Base ================*/
+* { 
+  box-sizing: border-box; margin: 0; 
+  padding: 0; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 80px; }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -10,9 +16,26 @@ body {
   line-height: 1.5;
 }
 
-h1, h2, h3 { font-weight: 500; line-height: 1.1; }
-img { max-width: 15%; height: auto; display: block; }
-a { color: inherit; text-decoration: none; }
+h1, h2, h3 { 
+  font-weight: 500; 
+  line-height: 1.1; 
+}
+
+img { 
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
+}
+
+a { 
+  color: inherit; 
+  text-decoration: none;
+}
+
+.logo img { 
+  height: 22px; 
+  width: auto; 
+}
 
 .container {
   width: 100%;
@@ -21,30 +44,44 @@ a { color: inherit; text-decoration: none; }
   padding: 0 24px;
 }
 
-.section { padding: 96px 0; }
-.dark { background: #0e0f12; color: #fff; }
+.section { 
+  padding: 96px 0; 
+}
+
+.dark { 
+  background: #0e0f12; 
+  color: #fff; 
+}
 
 .etiqueta, .dada {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 400;
 }
 
-/* Botones y enlaces */
+
+/* ================ Botones y enlaces ================ */
 .btn {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 999px;
   transition: opacity .2s, transform .2s;
 }
-.btn-dark { background: #111; color: #fff; }
-.btn:hover { opacity: .85; transform: translateY(-1px); }
+.btn-dark { 
+  background: #111; 
+  color: #fff; 
+}
+
+.btn:hover { 
+  opacity: .85; 
+  transform: translateY(-1px); 
+}
 
 a:focus-visible, .btn:focus-visible {
   outline: 2px solid #c2410c;
   outline-offset: 3px;
 }
 
-/*  Cabecera fija */
+/*================ Cabecera fija ================*/
 .site-header {
   position: sticky;
   top: 0;
@@ -58,10 +95,17 @@ a:focus-visible, .btn:focus-visible {
   justify-content: space-between;
   height: 72px;
 }
-.nav-list { display: flex; gap: 32px; list-style: none; }
-.nav-list a:hover { opacity: .6; }
+.nav-list { 
+  display: flex; 
+  gap: 32px; 
+  list-style: none; 
+}
 
-/* Hero estilos del enunciado */
+.nav-list a:hover { 
+  opacity: .6;
+}
+
+/*================ Hero estilos del enunciado ================*/
 .hero {
   position: relative;
   isolation: isolate;
@@ -72,24 +116,71 @@ a:focus-visible, .btn:focus-visible {
     radial-gradient(ellipse at 60% 0%, #fae6d1, transparent 55%),
     #fbfbfa;
 }
+
 .hero-graph {
-  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  position: absolute; 
+  inset: 0; 
+  z-index: 0; 
+  pointer-events: none;
   -webkit-mask-image: radial-gradient(ellipse, #000 60%, transparent 100%);
   mask-image: radial-gradient(ellipse, #000 60%, transparent 100%);
 }
-.hero-graph canvas { display: block; background: transparent; pointer-events: none; }
-.hero > .container { position: relative; z-index: 1; }
 
-.hero h1 { font-size: 72px; }
-.gradient-text {
-  background: linear-gradient(90deg, #e11d74, #f59e0b);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.hero-graph canvas { 
+  display: block; 
+  background: transparent; 
+  pointer-events: none; 
 }
 
-/* Tarjetas con Flexbox */
-.cards { display: flex; gap: 24px; }
+.hero > .container { 
+  position: relative; 
+  z-index: 1; 
+}
+
+.hero h1 { 
+  font-size: 72px; 
+}
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #ff5c7a,
+    #ff9d4d,
+    #ffe066,
+    #8eea8e,
+    #48d9d0,
+    #5295ff,
+    #a477ff,
+    #ed72cf,
+    #ff5c7a
+  );
+
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: moveGradient 6s linear infinite;
+}
+
+@keyframes moveGradient {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 200% 50%;
+  }
+}
+
+
+/*================ Tarjetas con Flexbox ================*/
+.cards { 
+  display: flex; 
+  gap: 24px; 
+}
+
 .card {
   flex: 1;
   padding: 32px;
@@ -98,14 +189,100 @@ a:focus-visible, .btn:focus-visible {
   border: 1px solid #e8e8e6;
 }
 
-/*  Responsive */
+/* Hero */
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  min-height: 720px;
+  padding-top: 64px;
+  padding-bottom: 0;
+}
+
+.hero-text { 
+  flex: 1 1 50%; 
+  max-width: 620px; 
+}
+
+.hero-symbol { 
+  width: 40px; 
+  margin-bottom: 24px; 
+}
+
+.hero-lead { 
+  font-size: 20px; 
+  color: #4a4a4a; 
+  margin: 24px 0 32px; 
+}
+
+.hero-actions { 
+  display: flex; 
+  align-items: center; 
+  gap: 24px; 
+}
+
+.hero-nexus {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 16px;
+  align-self: center;
+}
+
+.link-arrow { 
+  font-weight: 500; 
+}
+
+.link-arrow:hover { 
+  text-decoration: underline; 
+}
+
+/* Platform */
+#platform h2 { 
+  font-size: 48px; 
+  margin: 12px 0 48px; 
+  max-width: 760px; 
+}
+
+.card .etiqueta { 
+  font-size: 13px; 
+  text-transform: uppercase; 
+  color: #777; 
+  margin-bottom: 16px; 
+}
+
+.card h3 { 
+  font-size: 24px; 
+  margin-bottom: 12px; 
+}
+
+.core-strip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 24px;
+  padding: 24px 32px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #e8e8e6;
+  color: #6d6c6c;
+}
+
+
+/*================ Responsive ================*/
 @media (max-width: 767px) {
-  .hero-graph { display: none; }
+  .hero-graph { display: none !important; }
   .hero h1 { font-size: 40px; }
   .section { padding: 56px 0; }
-  .nav-list { display: none; }   
+  .nav-list { display: none ; }   
   .cards { flex-direction: column; }
+  .hero-inner { flex-direction: column; min-height: 0; text-align: left; }
+  .hero-nexus { max-width: 100%; }
+  .hero-actions { flex-wrap: wrap; }
+  #platform h2 { font-size: 32px; }
+  .core-strip { flex-direction: column; align-items: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-graph { display: none; }
+  .hero-graph { display: none !important; }
 }
