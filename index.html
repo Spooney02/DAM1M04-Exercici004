@@ -12,91 +12,148 @@
   <script defer src="assets/js/hero-graph.js"></script>
 </head>
 <body>
-
+  
+ <!-- ============================================================
+       01 · CABECERA (fija al hacer scroll)
+       ============================================================ -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#hero" class="logo"><img src="assets/img/strata-logo.svg" alt="Strata"></a>
+
+      <!-- Logo (columna izquierda) -->
+      <a href="#hero" class="logo">
+        <img src="assets/img/strata-logo.svg" alt="Strata">
+      </a>
+
+      <!-- Navegación interna (centro) -->
       <nav aria-label="Main">
         <ul class="nav-list">
           <li><a href="#platform">Platform</a></li>
           <li><a href="#workflows">Workflows</a></li>
           <li><a href="#atlas">Atlas</a></li>
-          <li><a href="#governance">Governance</a></li>
         </ul>
       </nav>
-      <a href="#get-started" class="btn btn-dark">Book a Demo</a>
+
+      <!-- Píldora de evento + botón (columna derecha) -->
+      <div class="header-actions">
+        <a href="#get-started" class="header-pill">
+          <span class="pill-dot"></span>See us at ILTACON Aug 2026
+        </a>
+        <a href="#get-started" class="btn btn-dark btn-sm">Book a Demo</a>
+      </div>
+
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="hero">
 
+  <main>
+
+    <!-- ============================================================
+         02 · HERO
+         (el script del enunciado necesita .hero y .container hijo directo)
+         ============================================================ -->
+    <section class="hero" id="hero">
       <div class="container hero-inner">
-        
+
+        <!-- Bloque de texto: símbolo, título, intro y acciones -->
         <div class="hero-text">
           <img class="hero-symbol" src="assets/img/strata-icon.svg" alt="">
           <h1>The work your firm doesn’t bill for, <span class="gradient-text">done</span>.</h1>
           <p class="hero-lead">AI agents that run the operational work your firm doesn’t bill for. We turn it into recovered revenue and reclaimed capacity.</p>
           <div class="hero-actions">
             <a href="#get-started" class="btn btn-dark">Book a Demo</a>
-            <a href="#platform" class="link-arrow">See the Platform ↓</a>
+            <a href="#platform" class="link-arrow">See the platform ↓</a>
           </div>
         </div>
 
-        <img class="hero-nexus" src="assets/img/nexus-screenshot.webp" alt="Strata Nexus product view">
+        <!-- Captura de Nexus con marco degradado (cortada por abajo) -->
+        <div class="hero-nexus-frame">
+          <img class="hero-nexus" src="assets/img/nexus-screenshot.webp" alt="Strata Nexus product view">
+        </div>
+
       </div>
     </section>
 
+
+    <!-- ============================================================
+         03 · PLATFORM
+         ============================================================ -->
     <section id="platform" class="section">
       <div class="container">
-        <p class="etiqueta">The Platform, Briefly</p>
-        <h2>One platform. Three surfaces.</h2>
 
+        <!-- Cabecera de la sección -->
+        <p class="etiqueta section-label">The Platform, Briefly</p>
+        <h2 class="section-title">One platform. Three surfaces.</h2>
+
+        <!-- Las tres tarjetas -->
         <div class="cards">
-          <article class="card">
-            <p class="etiqueta">Strata <b>Atlas</b></p>
-            <p>Where your firm’s operational map lives. 
-              Data sources connected, knowledge organized, 
-              ontology managed, workflows configured. 
-              The technical surface, operated by your innovation 
-              and IT teams alongside ours.</p>
+
+          <!-- Tarjeta 1: Atlas (verde) -->
+          <article class="card card-atlas">
+            <h3 class="surface-title">Strata <strong>Atlas</strong></h3>
+            <p class="card-text">Where your firm’s operational map lives. Data sources connected, knowledge organized, ontology managed, workflows configured. The technical surface, operated by your innovation and IT teams alongside ours.</p>
           </article>
-          <article class="card">
-            <p class="etiqueta">Strata <b>Nexus</b></p>
-            <p>The executive dashboard. Operational 
-              Value at the top: Time Saved, Revenue Recovered. 
-              Every workflow’s health, every integration’s status, 
-              and a Morning Brief in your inbox. Built for the CIO, 
-              CFO, COO and Managing Partner.</p>
+
+          <!-- Tarjeta 2: Nexus (azul) -->
+          <article class="card card-nexus">
+            <h3 class="surface-title">Strata <strong>Nexus</strong></h3>
+            <p class="card-text">The executive dashboard. Operational Value at the top: Time Saved, Revenue Recovered. Every workflow’s health, every integration’s status, and a Morning Brief in your inbox. Built for the CIO, CFO, COO and Managing Partner.</p>
           </article>
-          <article class="card">
-            <p class="etiqueta">Strata <b>Canvas</b></p>
-            <p>The design surface for new automations. 
-              Workflows get built here, by our team and 
-              your SMEs together, before they’re promoted 
-              into production.</p>
+
+          <!-- Tarjeta 3: Canvas (morado) -->
+          <article class="card card-canvas">
+            <h3 class="surface-title">Strata <strong>Canvas</strong></h3>
+            <p class="card-text">The design surface for new automations. Workflows get built here, by our team and your SMEs together, before they’re promoted into production.</p>
           </article>
+
         </div>
 
+        <!-- Franja inferior: Core -->
         <div class="core-strip">
-          <p class="etiqueta">Strata <b>Core</b></p>
-          <p>The engine underneath.Every workflow runs on it. Every dashboard reads from it. Every integration flows through it. One foundation for the work.</p>
+          <h3 class="surface-title">Strata <strong>Core</strong></h3>
+          <p class="card-text">The engine underneath. Every workflow runs on it. Every dashboard reads from it. Every integration flows through it. One foundation for the work.</p>
         </div>
+
       </div>
     </section>
 
-    <section class="banner"><!-- franja de mensaje centrado --></section>
-    <section id="value" class="section"><!-- Operational Value --></section>
-    <section id="field" class="section dark"><!-- From the Field --></section>
-    <section id="workflows" class="section"><!-- 6 servicios --></section>
-    <section id="atlas" class="section"><!-- Atlas --></section>
-    <section id="governance" class="section"><!-- Governance --></section>
-    <section id="get-started" class="section"><!-- CTA final + 3 bloques de confianza --></section>
+
+    <!-- ============================================================
+         SECCIONES PENDIENTES (descomentar según se vayan haciendo)
+         ============================================================ -->
+
+    <!-- 04 · FRANJA DE MENSAJE
+    <section class="banner"></section> -->
+
+    <!-- 05 · OPERATIONAL VALUE
+    <section id="value" class="section"></section> -->
+
+    <!-- 06 · FROM THE FIELD (fondo oscuro)
+    <section id="field" class="section dark"></section> -->
+
+    <!-- 07 · WORKFLOWS (enlace de la navegación)
+    <section id="workflows" class="section"></section> -->
+
+    <!-- 08 · ATLAS (enlace de la navegación)
+    <section id="atlas" class="section"></section> -->
+
+    <!-- 09 · GOVERNANCE
+    <section id="governance" class="section"></section> -->
+
+    <!-- 10 · GET STARTED (destino de los botones "Book a Demo")
+    <section id="get-started" class="section"></section> -->
+
   </main>
 
+
+  <!-- ============================================================
+       10 · PIE DE PÁGINA (pendiente)
+       ============================================================ -->
   <footer class="site-footer">
-    <div class="container"><!-- logo, enlaces, copyright --></div>
+    <div class="container">
+      <!-- logo, enlaces, copyright -->
+    </div>
   </footer>
+
 
 </body>
 </html>

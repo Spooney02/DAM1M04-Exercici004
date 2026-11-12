@@ -1,12 +1,16 @@
-/*================ Base ================*/
-* { 
-  box-sizing: border-box; margin: 0; 
-  padding: 0; 
+/* ============================================================
+   BASE · Reset y tipografía
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html { 
-  scroll-behavior: smooth; 
-  scroll-padding-top: 80px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;       /* compensa la cabecera fija */
+}
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -16,41 +20,20 @@ body {
   line-height: 1.5;
 }
 
-h1, h2, h3 { 
-  font-weight: 500; 
-  line-height: 1.1; 
+h1, h2, h3 {
+  font-weight: 500;
+  line-height: 1.1;
 }
 
-img { 
-  max-width: 100%; 
-  height: auto; 
-  display: block; 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-a { 
-  color: inherit; 
+a {
+  color: inherit;
   text-decoration: none;
-}
-
-.logo img { 
-  height: 22px; 
-  width: auto; 
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.section { 
-  padding: 96px 0; 
-}
-
-.dark { 
-  background: #0e0f12; 
-  color: #fff; 
 }
 
 .etiqueta, .dada {
@@ -59,230 +42,460 @@ a {
 }
 
 
-/* ================ Botones y enlaces ================ */
+/* ============================================================
+   BASE · Contenedor y secciones
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 96px 0;
+}
+
+.dark {
+  background: #0e0f12;
+  color: #fff;
+}
+
+
+/* ============================================================
+   BASE · Botones y estados de enlace
+   ============================================================ */
 .btn {
   display: inline-block;
   padding: 10px 20px;
   border-radius: 999px;
   transition: opacity .2s, transform .2s;
 }
-.btn-dark { 
-  background: #111; 
-  color: #fff; 
+
+.btn-dark {
+  background: #111;
+  color: #fff;
 }
 
-.btn:hover { 
-  opacity: .85; 
-  transform: translateY(-1px); 
+.btn-sm {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-a:focus-visible, .btn:focus-visible {
+.btn:hover {
+  opacity: .85;
+  transform: translateY(-1px);
+}
+
+a:focus-visible,
+.btn:focus-visible {
   outline: 2px solid #c2410c;
   outline-offset: 3px;
 }
 
-/*================ Cabecera fija ================*/
+
+/* ============================================================
+   01 · CABECERA · Barra fija
+   ============================================================ */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 10;
   background: rgba(251, 251, 250, .85);
   backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e8e8e6;
 }
+
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 72px;
 }
-.nav-list { 
-  display: flex; 
-  gap: 32px; 
-  list-style: none; 
+
+.logo img {
+  height: 22px;
+  width: auto;
 }
 
-.nav-list a:hover { 
-  opacity: .6;
+/* Columnas laterales iguales -> el menú queda centrado */
+.logo,
+.header-actions {
+  flex: 1;
 }
 
-/*================ Hero estilos del enunciado ================*/
+
+/* ============================================================
+   01 · CABECERA · Navegación central
+   ============================================================ */
+.nav-list {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-list a {
+  font-size: 15px;
+  color: #6b6f76;
+  transition: color .2s;
+}
+
+.nav-list a:hover {
+  color: #23262d;
+}
+
+
+/* ============================================================
+   01 · CABECERA · Píldora de evento + botón
+   ============================================================ */
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.header-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid #dcdcda;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 13px;
+  color: #3a3d44;
+  transition: border-color .2s;
+}
+
+.header-pill:hover {
+  border-color: #b5b5b2;
+}
+
+.pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e5484d;
+}
+
+
+/* ============================================================
+   02 · HERO · Capas y fondo (estilos del enunciado)
+   ============================================================ */
 .hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: 720px;
   background:
     radial-gradient(ellipse at 80% 15%, #f3dce8, transparent 60%),
     radial-gradient(ellipse at 60% 0%, #fae6d1, transparent 55%),
     #fbfbfa;
 }
 
+/* Bloque que crea el script con el gráfico 3D (no hay que escribirlo en el HTML) */
 .hero-graph {
-  position: absolute; 
-  inset: 0; 
-  z-index: 0; 
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   pointer-events: none;
   -webkit-mask-image: radial-gradient(ellipse, #000 60%, transparent 100%);
   mask-image: radial-gradient(ellipse, #000 60%, transparent 100%);
 }
 
-.hero-graph canvas { 
-  display: block; 
-  background: transparent; 
-  pointer-events: none; 
+.hero-graph canvas {
+  display: block;
+  background: transparent;
+  pointer-events: none;
 }
 
-.hero > .container { 
-  position: relative; 
-  z-index: 1; 
+/* El contenido queda por encima del gráfico */
+.hero > .container {
+  position: relative;
+  z-index: 1;
 }
 
-.hero h1 { 
-  font-size: 72px; 
+
+/* ============================================================
+   02 · HERO · Contenedor (texto arriba, captura abajo)
+   ============================================================ */
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 96px;                      /* separación botones <-> captura */
+  padding-top: 64px;
+  padding-bottom: 0;              /* la captura se apoya en el borde inferior */
 }
 
+.hero-text {
+  width: 100%;
+}
+
+
+/* ============================================================
+   02 · HERO · Símbolo, título y texto
+   ============================================================ */
+.hero-symbol {
+  width: 42px;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 6vw, 76px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #2b2e35;
+  max-width: 940px;               /* fuerza el salto de línea tras "firm" */
+}
+
+/* Palabra "done": degradado azul -> violeta -> magenta */
 .gradient-text {
-  background: linear-gradient(
-    90deg,
-    #ff5c7a,
-    #ff9d4d,
-    #ffe066,
-    #8eea8e,
-    #48d9d0,
-    #5295ff,
-    #a477ff,
-    #ed72cf,
-    #ff5c7a
-  );
-
-  background-size: 200% 100%;
-  background-position: 0% 50%;
-  background-clip: text;
+  background: linear-gradient(90deg, #1f6bff 0%, #7c4dff 55%, #c24be0 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: moveGradient 6s linear infinite;
 }
 
-@keyframes moveGradient {
-  from {
-    background-position: 0% 50%;
-  }
-
-  to {
-    background-position: 200% 50%;
-  }
+.hero-lead {
+  font-size: 21px;
+  line-height: 1.6;
+  color: #5f636b;
+  max-width: 900px;
+  margin: 28px 0 36px;
 }
 
 
-/*================ Tarjetas con Flexbox ================*/
-.cards { 
-  display: flex; 
-  gap: 24px; 
+/* ============================================================
+   02 · HERO · Acciones (botón + enlace)
+   ============================================================ */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.hero-actions .btn {
+  padding: 14px 26px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.link-arrow {
+  font-size: 15px;
+  color: #3a3d44;
+}
+
+.link-arrow:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   02 · HERO · Marco degradado de la captura de Nexus
+   ============================================================ */
+.hero-nexus-frame {
+  width: 100%;
+  align-self: stretch;
+  height: 380px;                  /* altura visible: el resto se corta por abajo */
+  overflow: hidden;
+  padding: 2px 2px 0;             /* grosor del borde (abajo 0) */
+  border-radius: 12px 12px 0 0;
+  background: linear-gradient(
+    120deg,
+    #7ddcc0,
+    #8ec5ff,
+    #b8a6ff,
+    #7ddcc0
+  );
+  box-shadow: 0 20px 60px rgba(80, 100, 160, .12);
+}
+
+.hero-nexus {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border-radius: 10px 10px 0 0;   /* radio del marco menos el grosor del borde */
+}
+
+
+/* ============================================================
+   03 · PLATFORM · Cabecera de sección (reutilizable)
+   ============================================================ */
+.section-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #6b6f76;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(36px, 4.4vw, 56px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #2b2e35;
+  margin-bottom: 32px;
+}
+
+
+/* ============================================================
+   03 · PLATFORM · Títulos y textos compartidos
+   (tarjetas y franja Core)
+   ============================================================ */
+.surface-title {
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #6d7178;                 /* "Strata" en gris */
+  margin-bottom: 20px;
+}
+
+.surface-title strong {
+  font-weight: 500;
+  color: #23262d;                 /* "Atlas / Nexus / Canvas / Core" oscuro */
+}
+
+.card-text {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #6b6f76;
+}
+
+
+/* ============================================================
+   03 · PLATFORM · Tarjetas (Flexbox)
+   ============================================================ */
+.cards {
+  display: flex;
+  gap: 24px;
 }
 
 .card {
   flex: 1;
-  padding: 32px;
-  border-radius: 20px;
-  background: #fff;
-  border: 1px solid #e8e8e6;
-}
-
-/* Hero */
-.hero-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 48px;
-  min-height: 720px;
-  padding-top: 64px;
-  padding-bottom: 0;
-}
-
-.hero-text { 
-  flex: 1 1 50%; 
-  max-width: 620px; 
-}
-
-.hero-symbol { 
-  width: 40px; 
-  margin-bottom: 24px; 
-}
-
-.hero-lead { 
-  font-size: 20px; 
-  color: #4a4a4a; 
-  margin: 24px 0 32px; 
-}
-
-.hero-actions { 
-  display: flex; 
-  align-items: center; 
-  gap: 24px; 
-}
-
-.hero-nexus {
-  width: 100%;
-  max-width: 1000px;
-  height: auto;
+  padding: 40px;
   border-radius: 16px;
-  align-self: center;
+  border: 1px solid #e8e8e6;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
-.link-arrow { 
-  font-weight: 500; 
+/* Degradado vertical + borde propio de cada tarjeta */
+.card-atlas {
+  background: linear-gradient(180deg, #e4f4ea 0%, #fbfbfa 65%);
+  border-color: #b7e5cb;
 }
 
-.link-arrow:hover { 
-  text-decoration: underline; 
+.card-nexus {
+  background: linear-gradient(180deg, #e6eefa 0%, #fbfbfa 65%);
+  border-color: #b5d5f2;
 }
 
-/* Platform */
-#platform h2 { 
-  font-size: 48px; 
-  margin: 12px 0 48px; 
-  max-width: 760px; 
+.card-canvas {
+  background: linear-gradient(180deg, #f5e6f6 0%, #fbfbfa 65%);
+  border-color: #dcb6f0;
 }
 
-.card .etiqueta { 
-  font-size: 13px; 
-  text-transform: uppercase; 
-  color: #777; 
-  margin-bottom: 16px; 
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
 }
 
-.card h3 { 
-  font-size: 24px; 
-  margin-bottom: 12px; 
-}
 
+/* ============================================================
+   03 · PLATFORM · Franja Core
+   ============================================================ */
 .core-strip {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 24px;
   margin-top: 24px;
-  padding: 24px 32px;
-  border-radius: 20px;
-  background: #fff;
-  border: 1px solid #e8e8e6;
-  color: #6d6c6c;
+  padding: 36px;
+  border-radius: 14px;
+  background: #f4f4f3;
+  border: 1px solid #e0e0de;
+}
+
+.core-strip .surface-title {
+  flex: 0 0 280px;                /* columna fija para el título */
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+.core-strip .card-text {
+  max-width: 780px;
+}
+
+/* Rectángulo punteado que asoma por encima de la franja */
+.core-strip::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 28px;
+  right: 28px;
+  height: 12px;
+  border: 1px dashed #e3e3e1;
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
 }
 
 
-/*================ Responsive ================*/
+/* ============================================================
+   RESPONSIVE · Móvil (menos de 768 px)
+   ============================================================ */
 @media (max-width: 767px) {
-  .hero-graph { display: none !important; }
-  .hero h1 { font-size: 40px; }
+
+  /* --- Base --- */
   .section { padding: 56px 0; }
-  .nav-list { display: none ; }   
-  .cards { flex-direction: column; }
-  .hero-inner { flex-direction: column; min-height: 0; text-align: left; }
-  .hero-nexus { max-width: 100%; }
+
+  /* --- Cabecera: el menú pasa a una segunda fila --- */
+  .header-inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    row-gap: 8px;
+  }
+  .logo, .header-actions { flex: none; }
+  .header-pill { display: none; }
+  .site-header nav { display : none; }   
+  .nav-list { gap: 20px; }
+  html { scroll-padding-top: 110px; }
+
+  /* --- Hero --- */
+  .hero-graph { display: none !important; }   
+  .hero h1 { font-size: 40px; }
+  .hero-inner { gap: 48px; padding-top: 40px; }
+  .hero-lead { font-size: 18px; }
   .hero-actions { flex-wrap: wrap; }
-  #platform h2 { font-size: 32px; }
-  .core-strip { flex-direction: column; align-items: flex-start; }
+  .hero-nexus-frame {
+    height: 240px;
+    padding: 1px 1px 0;
+    border-radius: 10px 10px 0 0;
+  }
+  .hero-nexus { border-radius: 9px 9px 0 0; }
+
+  /* --- Platform --- */
+  .cards { flex-direction: column; }
+  .card { padding: 28px; }
+  .core-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 28px;
+  }
+  .core-strip .surface-title { flex: none; }
+  .core-strip::before { left: 16px; right: 16px; }
 }
+
+
+/* ============================================================
+   ACCESIBILIDAD · Reducir movimiento (se oculta el gráfico 3D)
+   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   .hero-graph { display: none !important; }
 }
