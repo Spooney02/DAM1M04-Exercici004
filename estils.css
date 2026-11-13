@@ -1436,6 +1436,103 @@ a:focus-visible,
 }
 
 /* ============================================================
+   10 · GET STARTED · Fondo con resplandor azul y rosa
+   ============================================================ */
+.get-started {
+  padding: 96px 0 100px;
+  background:
+    radial-gradient(ellipse 45% 60% at 0% 5%, #d3e1ec 0%, transparent 70%),      /* azul grisáceo, arriba a la izquierda */
+    radial-gradient(ellipse 40% 55% at 100% 100%, #f0cfda 0%, transparent 70%),  /* rosa, abajo a la derecha */
+    #f5f2eb;
+}
+
+
+/* ============================================================
+   10 · GET STARTED · Cabecera (etiqueta, título y texto)
+   ============================================================ */
+.gs-label {
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #6b6f76;
+}
+
+.gs-title {
+  max-width: 820px;                      /* fuerza el salto de línea tras "is" */
+  margin: 28px 0 24px;
+  font-size: clamp(42px, 5vw, 70px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: #2b2e35;
+}
+
+/* "writing off": degradado verde -> azul */
+.gs-gradient {
+  background: linear-gradient(90deg, #2fbd6c 0%, #2eb3b0 40%, #2a7de1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.gs-lead {
+  margin-bottom: 40px;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #7b7e85;
+}
+
+
+/* ============================================================
+   10 · GET STARTED · Tres bloques de confianza (Flexbox)
+   ============================================================ */
+.gs-trust {
+  display: flex;
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid #e0ddd5;         /* línea horizontal superior */
+}
+
+.gs-item {
+  flex: 1;
+  padding: 22px 28px 20px;
+  border-left: 1px solid #e0ddd5;        /* separador vertical entre bloques */
+}
+
+/* El primer bloque no lleva separador ni sangría */
+.gs-item:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+/* Rayita degradada sobre cada bloque */
+.gs-item::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 6px;
+  margin-bottom: 18px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #3fbf6f, #3b82f6);
+}
+
+.gs-key {
+  margin-bottom: 8px;
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #7b7e85;
+}
+
+.gs-value {
+  font-size: 17px;
+  line-height: 1.4;
+  color: #23262d;
+}
+
+
+/* ============================================================
    RESPONSIVE · Móvil 
    ============================================================ */
 @media (max-width: 767px) {
@@ -1540,6 +1637,20 @@ a:focus-visible,
     text-align: center;
   }
   .gov-assurances li + li::before { display: none; }
+
+    /* --- Get Started --- */
+  .get-started { padding: 56px 0; }
+  .gs-title { font-size: 38px; max-width: none; }
+  .gs-lead { font-size: 18px; }
+  .gs-trust { flex-direction: column; margin-top: 56px; padding-top: 0; }
+  .gs-item,
+  .gs-item:first-child {
+    padding: 24px 0;
+    border-left: none;
+    border-bottom: 1px solid #e0ddd5;
+  }
+  .gs-item:last-child { border-bottom: none; }
+
 }
 
 
