@@ -521,6 +521,285 @@ a:focus-visible,
 
 
 /* ============================================================
+   05 · OPERATIONAL VALUE · Etiqueta con barra degradada
+   (también la usan las secciones 06 · From the Field y 08 · Atlas)
+   ============================================================ */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #6b6f76;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #3fbf6f, #3b82f6);
+}
+
+
+/* ============================================================
+   05 · OPERATIONAL VALUE · Título
+   ============================================================ */
+.value-title {
+  margin: 20px 0 40px;
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #2b2e35;
+}
+
+
+/* ============================================================
+   05 · OPERATIONAL VALUE · Panel con marco degradado
+   ============================================================ */
+.value-frame {
+  padding: 1px;                   /* grosor del borde degradado */
+  border-radius: 16px;
+  background: linear-gradient(135deg, #86e0b0, #8fb8ff 70%, #86e0b0);
+  box-shadow: 0 20px 50px rgba(60, 80, 120, .10);
+}
+
+.value-panel {
+  padding: 28px 30px 32px;
+  border-radius: 15px;            /* radio del marco menos el borde */
+  background: #fff;
+}
+
+
+/* ============================================================
+   05 · OPERATIONAL VALUE · Fila superior del panel
+   ============================================================ */
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e8e8e6;
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #6b6f76;
+}
+
+
+/* ============================================================
+   05 · OPERATIONAL VALUE · Métricas (Flexbox)
+   ============================================================ */
+.metrics {
+  display: flex;
+  gap: 40px;
+  margin-top: 28px;
+}
+
+.metric {
+  flex: 1;
+}
+
+/* Rayita de color sobre cada etiqueta */
+.metric-dash {
+  width: 14px;
+  height: 3px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #22c55e, #3b82f6);
+}
+
+.metric-label {
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #5a5e66;
+}
+
+.metric-value {
+  margin: 10px 0 8px;
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #2b2e35;
+}
+
+.metric-value .currency {
+  color: #8a8d94;                 /* el "$" más claro que los dígitos */
+}
+
+.metric-value .unit {
+  margin-left: 4px;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  color: #7b7e85;
+}
+
+.metric-note {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #6b6f76;
+}
+
+/* Etiqueta pequeña verdosa ("+18% MoM", "≈ 12 FTE-weeks") */
+.badge {
+  padding: 3px 8px;
+  border: 1px solid #b9e0d4;
+  border-radius: 999px;
+  background: #dff3ec;
+  font-size: 10px;
+  font-weight: 500;
+  color: #2b5c4e;
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   06 · FROM THE FIELD · Fondo oscuro con resplandor verde/azulado
+   ============================================================ */
+.field {
+  background:
+    radial-gradient(ellipse 28% 55% at 82% 58%, rgba(80, 120, 50, .45) 0%, transparent 70%),   /* verde, a la derecha */
+    radial-gradient(ellipse 38% 60% at 100% 8%, rgba(30, 110, 130, .55) 0%, transparent 70%),  /* azul verdoso, arriba a la derecha */
+    #101216;
+  color: #fff;
+}
+
+
+/* ============================================================
+   06 · FROM THE FIELD · Distribución en dos columnas (Flexbox)
+   ============================================================ */
+.field-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+}
+
+.field-main {
+  flex: 1;
+  max-width: 520px;
+}
+
+/* La etiqueta de esta sección es clara sobre fondo oscuro */
+.field .eyebrow {
+  font-weight: 700;
+  color: #e8e9ec;
+}
+
+
+/* ============================================================
+   06 · FROM THE FIELD · Cifra destacada
+   ============================================================ */
+.field-number {
+  margin: 24px 0 8px;
+  font-size: clamp(64px, 8vw, 104px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #fff;
+}
+
+.field-caption {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #b4b7be;
+}
+
+
+/* ============================================================
+   06 · FROM THE FIELD · Texto explicativo y nota
+   ============================================================ */
+.field-text {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #b9bcc3;
+}
+
+.field-note {
+  max-width: 460px;
+  margin-top: 32px;
+  padding-top: 18px;
+  border-top: 1px solid #2c2f35;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #8c9098;
+}
+
+
+/* ============================================================
+   06 · FROM THE FIELD · Ficha de datos (borde superior degradado)
+   ============================================================ */
+.field-card {
+  flex: 0 0 366px;
+  position: relative;
+  padding: 24px 24px 8px;
+  border: 1px solid #2c2f35;
+  border-radius: 14px;
+  background: #16181c;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+}
+
+/* Línea de color sobre el borde superior de la ficha */
+.field-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: linear-gradient(90deg, #e8c43a, #3b82f6 55%, #a855f7);
+}
+
+.card-kicker {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #2c2f35;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #9a9ea6;
+}
+
+
+/* ============================================================
+   06 · FROM THE FIELD · Filas de la ficha (etiqueta + valor)
+   ============================================================ */
+.fact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #2c2f35;
+}
+
+.fact:last-child {
+  border-bottom: none;
+}
+
+.fact dt {
+  font-size: 12px;
+  color: #c4c7cd;
+}
+
+.fact dd {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+/* ============================================================
    RESPONSIVE · Móvil (menos de 768 px)
    ============================================================ */
 @media (max-width: 767px) {
@@ -572,6 +851,20 @@ a:focus-visible,
   .banner-lead,
   .banner-sub { font-size: 19px; }
   .banner-lead br { display: none; }          /* el texto fluye solo en pantallas estrechas */
+
+  /* --- Operational Value --- */
+  .value-title { font-size: 26px; }
+  .br-desktop { display: none; }
+  .value-panel { padding: 22px 20px 26px; }
+  .panel-head { flex-direction: column; gap: 6px; }
+  .metrics { flex-direction: column; gap: 28px; }
+  .metric-value { font-size: 52px; }
+  .metric-value .unit { font-size: 26px; }
+
+  /* --- From the Field: las dos columnas pasan a vertical --- */
+  .field-inner { flex-direction: column; align-items: stretch; gap: 40px; }
+  .field-main { max-width: none; }
+  .field-card { flex: none; width: 100%; }
 
 }
 
