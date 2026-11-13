@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- ============================================================
+     HEAD 
+     ============================================================ -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,20 +15,21 @@
   <script defer src="assets/js/vendor/3d-force-graph.min.js"></script>
   <script defer src="assets/js/hero-graph.js"></script>
 </head>
+
 <body>
-  
- <!-- ============================================================
-       01 · CABECERA (fija al hacer scroll)
+
+  <!-- ============================================================
+       01 · CABECERA
        ============================================================ -->
   <header class="site-header">
     <div class="container header-inner">
 
-      <!-- Logo (columna izquierda) -->
+      <!-- Logo -->
       <a href="#hero" class="logo">
         <img src="assets/img/strata-logo.svg" alt="Strata">
       </a>
 
-      <!-- Navegación interna (centro) -->
+      <!-- Navegación interna -->
       <nav aria-label="Main">
         <ul class="nav-list">
           <li><a href="#platform">Platform</a></li>
@@ -33,7 +38,7 @@
         </ul>
       </nav>
 
-      <!-- Píldora de evento + botón (columna derecha) -->
+      <!-- Píldora de evento + botón -->
       <div class="header-actions">
         <a href="#get-started" class="header-pill">
           <span class="pill-dot"></span>See us at ILTACON Aug 2026
@@ -49,7 +54,6 @@
 
     <!-- ============================================================
          02 · HERO
-         (el script del enunciado necesita .hero y .container hijo directo)
          ============================================================ -->
     <section class="hero" id="hero">
       <div class="container hero-inner">
@@ -65,7 +69,7 @@
           </div>
         </div>
 
-        <!-- Captura de Nexus con marco degradado (cortada por abajo) -->
+        <!-- Captura de Nexus  -->
         <div class="hero-nexus-frame">
           <img class="hero-nexus" src="assets/img/nexus-screenshot.webp" alt="Strata Nexus product view">
         </div>
@@ -87,19 +91,19 @@
         <!-- Las tres tarjetas -->
         <div class="cards">
 
-          <!-- Tarjeta 1: Atlas (verde) -->
+          <!-- Tarjeta 1: Atlas -->
           <article class="card card-atlas">
             <h3 class="surface-title">Strata <strong>Atlas</strong></h3>
             <p class="card-text">Where your firm’s operational map lives. Data sources connected, knowledge organized, ontology managed, workflows configured. The technical surface, operated by your innovation and IT teams alongside ours.</p>
           </article>
 
-          <!-- Tarjeta 2: Nexus (azul) -->
+          <!-- Tarjeta 2: Nexus -->
           <article class="card card-nexus">
             <h3 class="surface-title">Strata <strong>Nexus</strong></h3>
             <p class="card-text">The executive dashboard. Operational Value at the top: Time Saved, Revenue Recovered. Every workflow’s health, every integration’s status, and a Morning Brief in your inbox. Built for the CIO, CFO, COO and Managing Partner.</p>
           </article>
 
-          <!-- Tarjeta 3: Canvas (morado) -->
+          <!-- Tarjeta 3: Canvas  -->
           <article class="card card-canvas">
             <h3 class="surface-title">Strata <strong>Canvas</strong></h3>
             <p class="card-text">The design surface for new automations. Workflows get built here, by our team and your SMEs together, before they’re promoted into production.</p>
@@ -118,7 +122,19 @@
 
 
     <!-- ============================================================
-         SECCIONES PENDIENTES (descomentar según se vayan haciendo)
+         04 · FRANJA DE MENSAJE
+         ============================================================ -->
+    <section class="banner">
+      <div class="container">
+        <p class="banner-lead">
+          Every workflow we run is a <strong>named automation</strong><br>
+          with an owner and binary acceptance criteria.
+        </p>
+        <p class="banner-sub">We don’t lead with the AI. We lead with the numbers it moves.</p>
+      </div>
+    </section>
+
+
          ============================================================ -->
 
     <!-- 04 · FRANJA DE MENSAJE
@@ -135,6 +151,9 @@
 
     <!-- 08 · ATLAS (enlace de la navegación)
     <section id="atlas" class="section"></section> -->
+    <!-- ============================================================
+         SECCIONES PENDIENTES
+         ============================================================ -->
 
     <!-- 09 · GOVERNANCE
     <section id="governance" class="section"></section> -->
@@ -153,7 +172,6 @@
       <!-- logo, enlaces, copyright -->
     </div>
   </footer>
-
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 /* ============================================================
-   BASE · Reset y tipografía
+   BASE 
    ============================================================ */
 * {
   box-sizing: border-box;
@@ -50,6 +50,16 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* Columna estrecha (Operational Value, Workflows y Atlas) */
+.container-narrow {
+  max-width: 768px;               /* 720 de contenido + 24 de margen a cada lado */
+}
+
+/* Contenedor medio (From the Field) */
+.container-field {
+  max-width: 1000px;
 }
 
 .section {
@@ -119,7 +129,7 @@ a:focus-visible,
   width: auto;
 }
 
-/* Columnas laterales iguales -> el menú queda centrado */
+/* Columnas laterales iguales */
 .logo,
 .header-actions {
   flex: 1;
@@ -194,7 +204,7 @@ a:focus-visible,
     #fbfbfa;
 }
 
-/* Bloque que crea el script con el gráfico 3D (no hay que escribirlo en el HTML) */
+/* Bloque que crea el script con el gráfico 3D */
 .hero-graph {
   position: absolute;
   inset: 0;
@@ -224,9 +234,9 @@ a:focus-visible,
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 96px;                      /* separación botones <-> captura */
+  gap: 96px;                     
   padding-top: 64px;
-  padding-bottom: 0;              /* la captura se apoya en el borde inferior */
+  padding-bottom: 0;              
 }
 
 .hero-text {
@@ -248,16 +258,43 @@ a:focus-visible,
   letter-spacing: -0.03em;
   line-height: 1.05;
   color: #2b2e35;
-  max-width: 940px;               /* fuerza el salto de línea tras "firm" */
+  max-width: 940px;               
 }
 
 /* Palabra "done": degradado azul -> violeta -> magenta */
 .gradient-text {
-  background: linear-gradient(90deg, #1f6bff 0%, #7c4dff 55%, #c24be0 100%);
+  background: linear-gradient(90deg, #e11d74, #f59e0b);
   -webkit-background-clip: text;
+  background: linear-gradient(
+    90deg,
+    #ff5c7a,
+    #ff9d4d,
+    #ffe066,
+    #8eea8e,
+    #48d9d0,
+    #5295ff,
+    #a477ff,
+    #ed72cf,
+    #ff5c7a
+  );
+
+  background-size: 200% 100%;
+  background-position: 0% 50%;
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  animation: moveGradient 6s linear infinite;
+}
+
+@keyframes moveGradient {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 200% 50%;
+  }
 }
 
 .hero-lead {
@@ -445,6 +482,45 @@ a:focus-visible,
 
 
 /* ============================================================
+   04 · FRANJA DE MENSAJE · Fondo con degradados suaves
+   ============================================================ */
+.banner {
+  padding: 64px 0;
+  text-align: center;
+  border-top: 1px solid #e3e1db;
+  border-bottom: 1px solid #e3e1db;
+  background:
+    radial-gradient(ellipse 45% 90% at 95% 0%, #bcd6f0 0%, transparent 70%),   /* azul arriba a la derecha */
+    radial-gradient(ellipse 55% 80% at 5% 100%, #cfe0b8 0%, transparent 70%),  /* verde abajo a la izquierda */
+    #f4f1ea;
+}
+
+
+/* ============================================================
+   04 · FRANJA DE MENSAJE · Textos
+   ============================================================ */
+.banner-lead,
+.banner-sub {
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.banner-lead {
+  color: #23262d;
+}
+
+.banner-lead strong {
+  font-weight: 500;
+}
+
+.banner-sub {
+  margin-top: 20px;
+  color: #7b7e85;                 /* gris más claro que el texto principal */
+}
+
+
+/* ============================================================
    RESPONSIVE · Móvil (menos de 768 px)
    ============================================================ */
 @media (max-width: 767px) {
@@ -462,12 +538,12 @@ a:focus-visible,
   }
   .logo, .header-actions { flex: none; }
   .header-pill { display: none; }
-  .site-header nav { display : none; }   
+  .site-header nav { order: 3; width: 100%; }
   .nav-list { gap: 20px; }
   html { scroll-padding-top: 110px; }
 
   /* --- Hero --- */
-  .hero-graph { display: none !important; }   
+  .hero-graph { display: none !important; }   /* en móvil solo queda el degradado */
   .hero h1 { font-size: 40px; }
   .hero-inner { gap: 48px; padding-top: 40px; }
   .hero-lead { font-size: 18px; }
@@ -490,12 +566,22 @@ a:focus-visible,
   }
   .core-strip .surface-title { flex: none; }
   .core-strip::before { left: 16px; right: 16px; }
+
+  /* --- Franja de mensaje --- */
+  .banner { padding: 48px 0; }
+  .banner-lead,
+  .banner-sub { font-size: 19px; }
+  .banner-lead br { display: none; }          /* el texto fluye solo en pantallas estrechas */
+
 }
 
 
 /* ============================================================
-   ACCESIBILIDAD · Reducir movimiento (se oculta el gráfico 3D)
+   ACCESIBILIDAD · Reducir movimiento
+   (se oculta el gráfico 3D, las filas no crecen y el buscador
+    se muestra ya completo, sin animación)
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   .hero-graph { display: none !important; }
+
 }
