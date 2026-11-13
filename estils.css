@@ -1533,6 +1533,65 @@ a:focus-visible,
 
 
 /* ============================================================
+   PIE DE PÁGINA · Fondo oscuro y distribución en tres columnas
+   ============================================================ */
+.site-footer {
+  padding: 48px 0;
+  background: #14171c;
+  color: #c4c7cd;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Columnas laterales iguales -> los enlaces quedan centrados */
+.footer-logo,
+.footer-copy {
+  flex: 1;
+}
+
+.footer-logo {
+  display: block;
+}
+
+/* Logo en blanco sobre el fondo oscuro (ver nota abajo) */
+.footer-logo img {
+  height: 22px;
+  width: auto;
+  filter: invert(100%);
+}
+
+
+/* ============================================================
+   PIE DE PÁGINA · Enlaces y copyright
+   ============================================================ */
+.footer-nav {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.footer-nav a {
+  font-size: 14px;
+  color: #c4c7cd;
+  transition: color .2s;
+}
+
+.footer-nav a:hover {
+  color: #fff;
+}
+
+.footer-copy {
+  font-size: 14px;
+  text-align: right;
+  color: #9a9ea6;
+}
+
+/* ============================================================
    RESPONSIVE · Móvil 
    ============================================================ */
 @media (max-width: 767px) {
@@ -1651,6 +1710,10 @@ a:focus-visible,
   }
   .gs-item:last-child { border-bottom: none; }
 
+  /* --- Pie de página --- */
+  .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-logo, .footer-copy { flex: none; text-align: center; }
+  .footer-nav { flex-wrap: wrap; justify-content: center; gap: 16px 24px; }
 }
 
 
