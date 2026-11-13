@@ -947,7 +947,301 @@ a:focus-visible,
 
 
 /* ============================================================
-   RESPONSIVE · Móvil (menos de 768 px)
+   08 · ATLAS · Cabecera de sección
+   ============================================================ */
+.atlas-title {
+  margin: 20px 0 16px;
+  font-size: 46px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #2b2e35;
+}
+
+.atlas-lead {
+  max-width: 560px;
+  margin-bottom: 40px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #7b7e85;
+}
+
+
+/* ============================================================
+   08 · ATLAS · Imagen del producto 
+   ============================================================ */
+.atlas-shot {
+  aspect-ratio: 1.57 / 1;                /* altura visible: el resto de la imagen se corta */
+  overflow: hidden;
+  border: 1px solid #e3e1db;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(60, 70, 100, .08);
+}
+
+.atlas-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;             
+}
+
+
+/* ============================================================
+   08 · ATLAS · Los cuatro pasos (Flexbox)
+   ============================================================ */
+.steps {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  list-style: none;
+}
+
+.step {
+  flex: 1;
+  padding-top: 16px;
+  border-top: 2px solid #23262d;         /* línea oscura sobre cada paso */
+}
+
+.step h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #2b2e35;
+}
+
+.step p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #7b7e85;
+}
+
+
+/* ============================================================
+   08 · ATLAS · Frase 
+   ============================================================ */
+.atlas-note {
+  max-width: 440px;
+  margin: 40px 0 36px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #5f636b;
+}
+
+
+/* ============================================================
+   08 · ATLAS · Parte inferior: buscador + nodos 
+   ============================================================ */
+.atlas-bottom {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.ask {
+  flex: 0 0 56%;
+}
+
+.nodes {
+  flex: 1;
+}
+
+
+/* ============================================================
+   08 · ATLAS · Caja de búsqueda
+   ============================================================ */
+.ask-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 7px 7px 14px;
+  border: 1px solid #dcdcda;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 13px;
+  color: #3a3d44;
+}
+
+.ask-icon {
+  flex: none;
+  color: #8a8d94;
+}
+
+/* El contenedor recorta el texto mientras "se escribe" */
+.ask-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.ask-btn {
+  flex: none;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 7px;
+  background: #23262d;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+/* ============================================================
+   08 · ATLAS · Animación del buscado
+   1) El texto se muestra poco a poco
+   2) Cuando termina, aparece la caja de respuesta
+   ============================================================ */
+@keyframes typeText {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes showAnswer {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ask-typed {
+  display: inline-block;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+  animation: typeText 2.4s steps(44, end) .6s forwards;
+}
+
+.ask-answer {
+  opacity: 0;                            /* el hueco ya está reservado: no hay saltos */
+  animation: showAnswer .6s ease 3.2s forwards;
+}
+
+/* Mejora: en navegadores compatibles, la animación avanza al hacer scroll */
+@supports (animation-timeline: view()) {
+  .ask {
+    view-timeline-name: --ask;
+    view-timeline-axis: block;
+  }
+
+  .ask-typed {
+    animation: typeText steps(44, end) both;
+    animation-timeline: --ask;
+    animation-range: entry 10% entry 100%;       /* se escribe mientras la caja entra en pantalla */
+  }
+
+  .ask-answer {
+    animation: showAnswer ease both;
+    animation-timeline: --ask;
+    animation-range: contain 0% contain 30%;     /* la respuesta aparece justo después */
+  }
+}
+
+
+/* ============================================================
+   08 · ATLAS · Caja de respuesta
+   ============================================================ */
+.ask-answer {
+  margin-top: 12px;
+  padding: 16px 18px;
+  border: 1px solid #e3e1db;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.answer-title {
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #3a3d44;
+}
+
+.answer-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #5f636b;
+}
+
+.answer-text strong {
+  font-weight: 600;
+  color: #23262d;
+}
+
+.answer-trace {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 11px;
+  color: #7b7e85;
+}
+
+.trace-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22a566;
+}
+
+
+/* ============================================================
+   08 · ATLAS · Nodos editables (dos tarjetas con borde verde)
+   ============================================================ */
+.nodes-label {
+  margin-bottom: 12px;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #7b7e85;
+}
+
+.nodes-cards {
+  display: flex;
+  gap: 12px;
+}
+
+.node {
+  flex: 1;
+  padding: 14px;
+  border: 1.5px solid #3fa66a;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.node-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #2f7d52;
+}
+
+.node-dot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22a566;
+}
+
+.node-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #3a3d44;
+}
+
+.node-ok {
+  margin-top: 12px;
+  font-size: 11px;
+  color: #22a566;
+}
+
+
+/* ============================================================
+   RESPONSIVE · Móvil 
    ============================================================ */
 @media (max-width: 767px) {
 
@@ -1029,6 +1323,14 @@ a:focus-visible,
   .wf-body { flex: 1 1 100%; max-width: none; }
   .wf-arrow { display: none; }
 
+  /* --- Atlas: pasos en 2x2 y bloque inferior en vertical --- */
+  .atlas-title { font-size: 34px; }
+  .atlas-shot { aspect-ratio: 4 / 3; }
+  .steps { flex-wrap: wrap; gap: 24px 16px; }
+  .step { flex: 1 1 calc(50% - 8px); }
+  .atlas-bottom { flex-direction: column; align-items: stretch; gap: 32px; }
+  .ask { flex: none; }
+  .nodes-cards { flex-direction: column; }
 }
 
 
@@ -1046,4 +1348,12 @@ a:focus-visible,
   .workflow:hover,
   .workflow:focus-within { transform: none; }
 
+  .ask-typed {
+    animation: none;
+    clip-path: none;
+  }
+  .ask-answer {
+    animation: none;
+    opacity: 1;
+  }
 }
