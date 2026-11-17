@@ -261,9 +261,8 @@ a:focus-visible,
   max-width: 940px;               
 }
 
-/* Palabra "done": degradado azul -> violeta -> magenta */
+/* Palabra "done": degradado animando */
 .gradient-text {
-  background: linear-gradient(90deg, #e11d74, #f59e0b);
   -webkit-background-clip: text;
   background: linear-gradient(
     90deg,
@@ -281,7 +280,6 @@ a:focus-visible,
   background-size: 200% 100%;
   background-position: 0% 50%;
   background-clip: text;
-  -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
   animation: moveGradient 6s linear infinite;
@@ -1562,7 +1560,7 @@ a:focus-visible,
 .footer-logo img {
   height: 22px;
   width: auto;
-  filter: invert(100%);
+  filter: invert(100%); /* Invierte los Colores del Logo para que sea visible en fondo oscuro */
 }
 
 
